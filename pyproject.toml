@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=82"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "py-lib-policy"
+version = "1.0.0"
+requires-python = ">=3.13"
+dependencies = ["PyYAML>=6.0.3"]
+
+[project.scripts]
+py-lib-policy = "py_lib_policy:main"
+
+[dependency-groups]
+dev = ["pytest>=9", "ruff>=0.15"]
+
+[tool.setuptools]
+py-modules = ["py_lib_policy"]
+
+[tool.ruff]
+target-version = "py313"
+line-length = 120

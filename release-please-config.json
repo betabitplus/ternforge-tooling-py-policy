@@ -6,7 +6,7 @@
   "changelog-path": "CHANGELOG.md",
   "packages": {
     ".": {
-      "component": "ternforge-tooling-py-policy",
+      "component": "py-lib-policy",
       "release-type": "simple",
       "extra-files": [
         {

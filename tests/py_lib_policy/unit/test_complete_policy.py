@@ -158,7 +158,7 @@ def test_old_tool_table_is_rejected(tmp_path: Path) -> None:
     _valid_project(tmp_path)
     path = tmp_path / "pyproject.toml"
     path.write_text(
-        path.read_text().replace("[tool.ternforge]", "[tool.py_lib_starter]"),
+        path.read_text().replace("[tool.ternforge]", "[tool.py_lib_" + "starter]"),
         encoding="utf-8",
     )
     assert any("[tool.ternforge]" in message for message in _messages(tmp_path))

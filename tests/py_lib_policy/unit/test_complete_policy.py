@@ -142,7 +142,7 @@ def _valid_project(
     _write(root / "workbench" / "__init__.py")
     _write(root / "workbench" / package / "__init__.py")
     _write(root / "workbench" / package / "probe.py", "# %%\nprint('probe')\n")
-    _write(root / "_copier_answers.yml", "e2e_slices: []\n")
+    _write(root / ".copier-answers.yml", "e2e_slices: []\n")
 
 
 def _messages(root: Path) -> list[str]:
@@ -382,7 +382,7 @@ def test_complete_docs_skeleton_is_required(tmp_path: Path) -> None:
 def test_configured_e2e_slice_requires_path_and_documentation(tmp_path: Path) -> None:
     _valid_project(tmp_path)
     _write(
-        tmp_path / "_copier_answers.yml",
+        tmp_path / ".copier-answers.yml",
         (
             "e2e_slices:\n"
             "  - name: custom-flow\n"
@@ -401,7 +401,7 @@ def test_configured_e2e_slice_requires_path_and_documentation(tmp_path: Path) ->
 
 def test_malformed_e2e_slice_config_fails_closed(tmp_path: Path) -> None:
     _valid_project(tmp_path)
-    _write(tmp_path / "_copier_answers.yml", "e2e_slices: invalid\n")
+    _write(tmp_path / ".copier-answers.yml", "e2e_slices: invalid\n")
     assert any(
         "e2e_slices must be a list" in message for message in _messages(tmp_path)
     )

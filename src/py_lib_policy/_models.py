@@ -8,7 +8,7 @@ from pathlib import Path
 
 _TOOL_TABLE = "ternforge"
 
-_ANSWERS_FILE = "_copier_answers.yml"
+_ANSWERS_FILE = ".copier-answers.yml"
 
 _PACKAGE_PLACEHOLDER = "__PACKAGE_NAME__"
 

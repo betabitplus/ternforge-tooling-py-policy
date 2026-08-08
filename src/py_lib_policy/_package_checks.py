@@ -6,13 +6,13 @@ import ast
 from collections.abc import Iterable
 from pathlib import Path
 
-from ._models import (
+from py_lib_policy._models import (
     _REQUIRED_API_FILES,
     _REQUIRED_CONFIG_FILES,
     ProjectPolicyConfig,
     Violation,
 )
-from ._syntax import (
+from py_lib_policy._syntax import (
     _check_declaration_module,
     _check_root_initializer,
     _has_cell_marker,

@@ -114,16 +114,14 @@ def _find_pyproject(start: Path | None = None) -> Path:
         path = root / "pyproject.toml"
         if path.is_file():
             return path
-    raise FileNotFoundError(f"Could not find pyproject.toml above {candidate}.")
+    msg = f"Could not find pyproject.toml above {candidate}."
+    raise FileNotFoundError(msg)
 
 
 def _read_toml(path: Path) -> dict[str, object]:
-    """Read and validate one TOML document as a table."""
+    """Read one TOML document."""
     with path.open("rb") as stream:
-        value = tomllib.load(stream)
-    if not isinstance(value, dict):
-        raise TypeError("pyproject.toml root must be a table")
-    return value
+        return tomllib.load(stream)
 
 
 def _string_tuple(
@@ -133,7 +131,8 @@ def _string_tuple(
     if value is None and not required:
         return ()
     if not isinstance(value, list) or not value:
-        raise TypeError(f"[tool.{_TOOL_TABLE}].{field} must be a non-empty string list")
+        msg = f"[tool.{_TOOL_TABLE}].{field} must be a non-empty string list"
+        raise TypeError(msg)
     values = (_validated_string_item(item, field=field) for item in value)
     return tuple(dict.fromkeys(values))
 
@@ -141,9 +140,8 @@ def _string_tuple(
 def _validated_string_item(item: object, *, field: str) -> str:
     """Return one normalized manifest string item."""
     if not isinstance(item, str) or not item.strip():
-        raise ValueError(
-            f"[tool.{_TOOL_TABLE}].{field} items must be non-empty strings"
-        )
+        msg = f"[tool.{_TOOL_TABLE}].{field} items must be non-empty strings"
+        raise ValueError(msg)
     return item.strip()
 
 
@@ -152,20 +150,19 @@ def _project_config(root: Path) -> ProjectPolicyConfig:
     raw = _read_toml(root / "pyproject.toml")
     tooling = _table(_table(raw.get("tool")).get(_TOOL_TABLE))
     if not tooling:
-        raise TypeError(f"pyproject.toml must define [tool.{_TOOL_TABLE}]")
+        msg = f"pyproject.toml must define [tool.{_TOOL_TABLE}]"
+        raise TypeError(msg)
     primary = tooling.get("primary_package")
     if not isinstance(primary, str) or not primary.strip():
-        raise ValueError(
-            f"[tool.{_TOOL_TABLE}].primary_package must be a non-empty string"
-        )
+        msg = f"[tool.{_TOOL_TABLE}].primary_package must be a non-empty string"
+        raise ValueError(msg)
     package_names = _string_tuple(
         tooling.get("package_names"), field="package_names", required=True
     )
     primary = primary.strip()
     if primary not in package_names:
-        raise ValueError(
-            f"[tool.{_TOOL_TABLE}].primary_package must appear in package_names"
-        )
+        msg = f"[tool.{_TOOL_TABLE}].primary_package must appear in package_names"
+        raise ValueError(msg)
     public_namespaces = _string_tuple(
         tooling.get("public_namespace_packages"),
         field="public_namespace_packages",

@@ -6,19 +6,19 @@ import argparse
 import tomllib
 from pathlib import Path
 
-from ._models import (
+from py_lib_policy._models import (
     Violation,
     _normalize_start,
     _project_config,
     discover_project_roots,
 )
-from ._package_checks import (
+from py_lib_policy._package_checks import (
     _check_dynamic_private_imports,
     _check_examples,
     _check_package,
 )
-from ._project_checks import _check_docs, _check_tests, _check_workbench
-from ._syntax import _check_console_scripts
+from py_lib_policy._project_checks import _check_docs, _check_tests, _check_workbench
+from py_lib_policy._syntax import _check_console_scripts
 
 
 def check_project_root(root: Path) -> tuple[Violation, ...]:

@@ -6,7 +6,7 @@ from pathlib import Path
 
 import yaml
 
-from ._models import (
+from py_lib_policy._models import (
     _ANSWERS_FILE,
     _PACKAGE_DOCS,
     _PACKAGE_PLACEHOLDER,
@@ -16,7 +16,7 @@ from ._models import (
     ProjectPolicyConfig,
     Violation,
 )
-from ._syntax import _has_cell_marker
+from py_lib_policy._syntax import _has_cell_marker
 
 
 def _check_tests(root: Path, packages: tuple[str, ...]) -> list[Violation]:
@@ -81,33 +81,36 @@ def _load_e2e_slices(root: Path) -> tuple[tuple[str, Path], ...]:
         return ()
     value = yaml.safe_load(answers.read_text(encoding="utf-8"))
     if not isinstance(value, dict):
-        raise TypeError(f"{_ANSWERS_FILE} must contain a mapping")
+        msg = f"{_ANSWERS_FILE} must contain a mapping"
+        raise TypeError(msg)
     raw = value.get("e2e_slices", ())
     if raw is None:
         return ()
     if not isinstance(raw, list):
-        raise TypeError(f"{_ANSWERS_FILE} e2e_slices must be a list")
+        msg = f"{_ANSWERS_FILE} e2e_slices must be a list"
+        raise TypeError(msg)
     return tuple(_parse_e2e_slice(item) for item in raw)
 
 
 def _parse_e2e_slice(item: object) -> tuple[str, Path]:
     """Return one validated e2e slice declaration."""
     if not isinstance(item, dict):
-        raise TypeError(f"{_ANSWERS_FILE} e2e_slices items must be mappings")
+        msg = f"{_ANSWERS_FILE} e2e_slices items must be mappings"
+        raise TypeError(msg)
     name = _required_slice_text(item.get("name"), field="name")
     path = _required_slice_text(item.get("path"), field="path")
     normalized = Path(path)
     if normalized.is_absolute():
-        raise ValueError(f"{_ANSWERS_FILE} e2e slice path must be relative")
+        msg = f"{_ANSWERS_FILE} e2e slice path must be relative"
+        raise ValueError(msg)
     return name, normalized
 
 
 def _required_slice_text(value: object, *, field: str) -> str:
     """Return one required normalized e2e slice string."""
     if not isinstance(value, str) or not value.strip():
-        raise ValueError(
-            f"{_ANSWERS_FILE} e2e slice {field} must be a non-empty string"
-        )
+        msg = f"{_ANSWERS_FILE} e2e slice {field} must be a non-empty string"
+        raise ValueError(msg)
     return value.strip()
 
 

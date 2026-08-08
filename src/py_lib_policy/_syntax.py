@@ -6,7 +6,13 @@ import ast
 from collections.abc import Iterable
 from pathlib import Path
 
-from ._models import _IGNORED_PARTS, ProjectPolicyConfig, Violation, _read_toml, _table
+from py_lib_policy._models import (
+    _IGNORED_PARTS,
+    ProjectPolicyConfig,
+    Violation,
+    _read_toml,
+    _table,
+)
 
 
 def _parse(path: Path) -> ast.Module | None:
@@ -124,16 +130,13 @@ def _check_console_scripts(root: Path, config: ProjectPolicyConfig) -> list[Viol
         if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef))
         and not node.name.startswith("_")
     }
-    prefix = f"{config.primary_package}._api.cli:"
     violations = (
         _console_script_violation(
+            root=root,
+            config=config,
+            functions=functions,
             name=name,
             target=target,
-            prefix=prefix,
-            facade=facade,
-            facade_available=tree is not None,
-            functions=functions,
-            pyproject=root / "pyproject.toml",
         )
         for name, target in sorted(scripts.items())
     )
@@ -142,18 +145,21 @@ def _check_console_scripts(root: Path, config: ProjectPolicyConfig) -> list[Viol
 
 def _console_script_violation(
     *,
+    root: Path,
+    config: ProjectPolicyConfig,
+    functions: set[str],
     name: str,
     target: object,
-    prefix: str,
-    facade: Path,
-    facade_available: bool,
-    functions: set[str],
-    pyproject: Path,
 ) -> Violation | None:
     """Return the violation for one declared console script, if any."""
+    prefix = f"{config.primary_package}._api.cli:"
+    facade = root / "src" / config.primary_package / "_api" / "cli.py"
     if not isinstance(target, str) or not target.startswith(prefix):
-        return Violation(pyproject, f"project scripts must target `{prefix}*`")
-    if not facade_available:
+        return Violation(
+            root / "pyproject.toml",
+            f"project scripts must target `{prefix}*`",
+        )
+    if not facade.is_file():
         return Violation(facade, "project scripts require an `_api/cli.py` facade")
     function = target.partition(":")[2]
     if function not in functions:

@@ -23,6 +23,17 @@ _REQUIRED_CONFIG_FILES = (
     "validation.py",
 )
 
+_REQUIRED_MANAGED_PROJECT_FILES = (
+    ".copier-answers.yml",
+    ".github/workflows/ci.yml",
+    ".github/workflows/release.yml",
+    ".pre-commit-config.yaml",
+    ".release-please-manifest.json",
+    "pyproject.toml",
+    "release-please-config.json",
+    "renovate.json5",
+)
+
 _REQUIRED_TEST_ROOT_PATHS = ("README.md", "__init__.py")
 
 _REQUIRED_PACKAGE_TEST_PATHS = (

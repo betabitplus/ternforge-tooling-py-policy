@@ -23,6 +23,12 @@ def test_old_tool_table_is_rejected(tmp_path: Path) -> None:
     assert any("[tool.ternforge]" in message for message in _messages(tmp_path))
 
 
+def test_missing_managed_project_file_is_reported(tmp_path: Path) -> None:
+    _valid_project(tmp_path)
+    (tmp_path / ".pre-commit-config.yaml").unlink()
+    assert "required Ternforge managed project file is missing" in _messages(tmp_path)
+
+
 def test_missing_source_and_test_paths_are_reported(tmp_path: Path) -> None:
     _valid_project(tmp_path)
     (tmp_path / "src/sample_lib/_api/config.py").unlink()

@@ -10,6 +10,7 @@ from py_lib_policy._api.defaults import (
     _ANSWERS_FILE,
     _PACKAGE_DOCS,
     _PACKAGE_PLACEHOLDER,
+    _REQUIRED_MANAGED_PROJECT_FILES,
     _REQUIRED_PACKAGE_TEST_PATHS,
     _REQUIRED_TEMPLATE_TEST_PATHS,
     _REQUIRED_TEST_ROOT_PATHS,
@@ -17,6 +18,15 @@ from py_lib_policy._api.defaults import (
 from py_lib_policy._internal.config.models import ProjectPolicyConfig
 from py_lib_policy._internal.policy.models import Violation
 from py_lib_policy._internal.policy.syntax import _has_cell_marker
+
+
+def _check_managed_project_files(root: Path) -> list[Violation]:
+    """Check mandatory template-managed project control files."""
+    return [
+        Violation(root / relative, "required Ternforge managed project file is missing")
+        for relative in _REQUIRED_MANAGED_PROJECT_FILES
+        if not (root / relative).is_file()
+    ]
 
 
 def _check_tests(root: Path, packages: tuple[str, ...]) -> list[Violation]:

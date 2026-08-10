@@ -142,6 +142,15 @@ def _valid_project(
     _write(root / "workbench" / "__init__.py")
     _write(root / "workbench" / package / "__init__.py")
     _write(root / "workbench" / package / "probe.py", "# %%\nprint('probe')\n")
+    for relative in (
+        ".github/workflows/ci.yml",
+        ".github/workflows/release.yml",
+        ".pre-commit-config.yaml",
+        ".release-please-manifest.json",
+        "release-please-config.json",
+        "renovate.json5",
+    ):
+        _write(root / relative)
     _write(root / ".copier-answers.yml", "e2e_slices: []\n")
 
 

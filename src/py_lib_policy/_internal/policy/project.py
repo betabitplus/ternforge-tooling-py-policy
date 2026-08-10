@@ -6,17 +6,17 @@ from pathlib import Path
 
 import yaml
 
-from py_lib_policy._models import (
+from py_lib_policy._api.defaults import (
     _ANSWERS_FILE,
     _PACKAGE_DOCS,
     _PACKAGE_PLACEHOLDER,
     _REQUIRED_PACKAGE_TEST_PATHS,
     _REQUIRED_TEMPLATE_TEST_PATHS,
     _REQUIRED_TEST_ROOT_PATHS,
-    ProjectPolicyConfig,
-    Violation,
 )
-from py_lib_policy._syntax import _has_cell_marker
+from py_lib_policy._internal.config.models import ProjectPolicyConfig
+from py_lib_policy._internal.policy.models import Violation
+from py_lib_policy._internal.policy.syntax import _has_cell_marker
 
 
 def _check_tests(root: Path, packages: tuple[str, ...]) -> list[Violation]:

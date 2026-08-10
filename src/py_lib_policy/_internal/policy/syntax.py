@@ -6,13 +6,11 @@ import ast
 from collections.abc import Iterable
 from pathlib import Path
 
-from py_lib_policy._models import (
-    _IGNORED_PARTS,
-    ProjectPolicyConfig,
-    Violation,
-    _read_toml,
-    _table,
-)
+from py_lib_policy._api.defaults import _IGNORED_PARTS
+from py_lib_policy._internal.config.assembly import _read_toml
+from py_lib_policy._internal.config.models import ProjectPolicyConfig
+from py_lib_policy._internal.config.validation import _table
+from py_lib_policy._internal.policy.models import Violation
 
 
 def _parse(path: Path) -> ast.Module | None:

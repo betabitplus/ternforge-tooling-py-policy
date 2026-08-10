@@ -19,6 +19,7 @@ from py_lib_policy._internal.policy.package import (
 )
 from py_lib_policy._internal.policy.project import (
     _check_docs,
+    _check_managed_project_files,
     _check_tests,
     _check_workbench,
 )
@@ -33,6 +34,7 @@ def check_project_root(root: Path) -> tuple[Violation, ...]:
     except (OSError, TypeError, ValueError, tomllib.TOMLDecodeError) as exc:
         return (Violation(root / "pyproject.toml", str(exc)),)
     violations: list[Violation] = []
+    violations.extend(_check_managed_project_files(root))
     violations.extend(_check_console_scripts(root, config))
     for package in config.package_names:
         violations.extend(_check_package(root, package, config))

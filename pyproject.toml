@@ -30,7 +30,7 @@ urls."Bug Tracker" = "https://github.com/betabitplus/ternforge-tooling-py-policy
 urls.Documentation = "https://github.com/betabitplus/ternforge-tooling-py-policy/tree/main/docs"
 urls.Homepage = "https://github.com/betabitplus/ternforge-tooling-py-policy"
 urls.Repository = "https://github.com/betabitplus/ternforge-tooling-py-policy"
-scripts.py-lib-policy = "py_lib_policy:main"
+scripts.py-lib-policy = "py_lib_policy._api.cli:main"
 
 [dependency-groups]
 dev = [

@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.3](https://github.com/betabitplus/ternforge-tooling-py-policy/compare/v1.1.2...v1.1.3) (2026-08-10)
+
+
+### Bug Fixes
+
+* make policy repository self-conformant ([#29](https://github.com/betabitplus/ternforge-tooling-py-policy/issues/29)) ([aae0567](https://github.com/betabitplus/ternforge-tooling-py-policy/commit/aae0567f779ab2a402290ce6f0000fc6b6915d1d))
+
 ## [1.1.2](https://github.com/betabitplus/ternforge-tooling-py-policy/compare/v1.1.1...v1.1.2) (2026-08-07)
 
 

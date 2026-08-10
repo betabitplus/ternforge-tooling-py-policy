@@ -415,5 +415,62 @@ secrets.env_files = []
 
 # ---------------- Import-linter architecture contracts ----------------
 [tool.importlinter]
-root_packages = [ "py_lib_policy" ]
+root_packages = [ "py_lib_policy", "tests" ]
 include_external_packages = true
+
+[[tool.importlinter.contracts]]
+name = "Root package must not be imported by the private implementation"
+id = "root-not-imported-by-private-implementation"
+type = "forbidden"
+source_modules = [ "py_lib_policy._internal" ]
+forbidden_modules = [ "py_lib_policy" ]
+as_packages = false
+
+[[tool.importlinter.contracts]]
+name = "Root package must not be imported by the facade layer"
+id = "root-not-imported-by-facade-layer"
+type = "forbidden"
+source_modules = [ "py_lib_policy._api" ]
+forbidden_modules = [ "py_lib_policy" ]
+as_packages = false
+
+[[tool.importlinter.contracts]]
+name = "Private implementation must not depend on public config facade"
+id = "private-implementation-not-dependent-on-config-facade"
+type = "forbidden"
+source_modules = [ "py_lib_policy._internal" ]
+forbidden_modules = [ "py_lib_policy._api.config" ]
+as_packages = false
+
+[[tool.importlinter.contracts]]
+name = "Private implementation is only imported through product code and explicit private-boundary test layers"
+id = "private-implementation-approved-boundaries"
+type = "protected"
+protected_modules = [ "py_lib_policy._internal" ]
+allowed_importers = [
+  "py_lib_policy._api",
+  "py_lib_policy._internal",
+  "tests.py_lib_policy.integration",
+  "tests.py_lib_policy.property_based.internal",
+  "tests.py_lib_policy.unit",
+]
+
+[[tool.importlinter.contracts]]
+name = "Facade layer must import private implementation only through the private root"
+id = "facade-private-imports-through-root"
+type = "forbidden"
+source_modules = [ "py_lib_policy._api" ]
+forbidden_modules = [ "py_lib_policy._internal.**" ]
+allow_indirect_imports = true
+
+[[tool.importlinter.contracts]]
+name = "Py Lib Policy public-contract verification modules must not import private implementation"
+id = "py-lib-policy-public-contract-boundary"
+type = "forbidden"
+source_modules = [
+  "tests.py_lib_policy.e2e",
+  "tests.py_lib_policy.property_based.public_contract",
+  "tests.py_lib_policy.support",
+]
+forbidden_modules = [ "py_lib_policy._internal", "src" ]
+allow_indirect_imports = true

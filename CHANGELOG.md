@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.5](https://github.com/betabitplus/ternforge-tooling-py-policy/compare/v1.1.4...v1.1.5) (2026-08-10)
+
+
+### Bug Fixes
+
+* restore import architecture contracts ([#36](https://github.com/betabitplus/ternforge-tooling-py-policy/issues/36)) ([9bfe48b](https://github.com/betabitplus/ternforge-tooling-py-policy/commit/9bfe48bce9d7b6196cbbe925e44b63a3abfb983e))
+
 ## [1.1.4](https://github.com/betabitplus/ternforge-tooling-py-policy/compare/v1.1.3...v1.1.4) (2026-08-10)
 
 

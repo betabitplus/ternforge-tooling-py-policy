@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.4](https://github.com/betabitplus/ternforge-tooling-py-policy/compare/v1.1.3...v1.1.4) (2026-08-10)
+
+
+### Bug Fixes
+
+* require managed Python project controls ([#32](https://github.com/betabitplus/ternforge-tooling-py-policy/issues/32)) ([016255b](https://github.com/betabitplus/ternforge-tooling-py-policy/commit/016255bf70121e4d1293ab6c6b99b8867235c6bf))
+
 ## [1.1.3](https://github.com/betabitplus/ternforge-tooling-py-policy/compare/v1.1.2...v1.1.3) (2026-08-10)
 
 

@@ -92,7 +92,14 @@ packages.find.include = [ "py_lib_policy*" ]
 package-dir."" = "src"
 
 [tool.uv]
+<<<<<<< before updating
 required-version = "==0.12.0"
+=======
+required-version = "==0.12.3"
+sources.py-lib-policy = { git = "https://github.com/betabitplus/ternforge-tooling-py-policy.git", tag = "v1.1.5" }
+sources.py-lib-runtime = { git = "https://github.com/betabitplus/ternforge-tooling-py-runtime.git", tag = "v1.1.3" }
+sources.py-lib-testkit = { git = "https://github.com/betabitplus/ternforge-tooling-py-testkit.git", tag = "v1.1.8" }
+>>>>>>> after updating
 
 # ---------------- Ruff configuration ----------------
 [tool.ruff]

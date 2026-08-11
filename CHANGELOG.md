@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.6](https://github.com/betabitplus/ternforge-tooling-py-policy/compare/v1.1.5...v1.1.6) (2026-08-11)
+
+
+### Bug Fixes
+
+* remove migration-era policy residue ([#41](https://github.com/betabitplus/ternforge-tooling-py-policy/issues/41)) ([3089e1f](https://github.com/betabitplus/ternforge-tooling-py-policy/commit/3089e1f67de2de92981e5d0e53100ef15249e97b))
+
 ## [1.1.5](https://github.com/betabitplus/ternforge-tooling-py-policy/compare/v1.1.4...v1.1.5) (2026-08-10)
 
 

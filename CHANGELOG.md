@@ -21,13 +21,6 @@
 
 * make policy repository self-conformant ([#29](https://github.com/betabitplus/ternforge-tooling-py-policy/issues/29)) ([aae0567](https://github.com/betabitplus/ternforge-tooling-py-policy/commit/aae0567f779ab2a402290ce6f0000fc6b6915d1d))
 
-## [1.1.2](https://github.com/betabitplus/ternforge-tooling-py-policy/compare/v1.1.1...v1.1.2) (2026-08-07)
-
-
-### Bug Fixes
-
-* remove legacy starter identity literal ([#6](https://github.com/betabitplus/ternforge-tooling-py-policy/issues/6)) ([a0422f5](https://github.com/betabitplus/ternforge-tooling-py-policy/commit/a0422f5f31c457c09d4fe6b0e6f1eb01c8ef5f7e))
-
 ## [1.1.1](https://github.com/betabitplus/ternforge-tooling-py-policy/compare/v1.1.0...v1.1.1) (2026-08-07)
 
 
@@ -41,7 +34,3 @@
 ### Features
 
 * adopt Copier-managed Python lifecycle ([#1](https://github.com/betabitplus/ternforge-tooling-py-policy/issues/1)) ([ad29afd](https://github.com/betabitplus/ternforge-tooling-py-policy/commit/ad29afd7106a0ea20d84011f44a99b129ec1edb7))
-
-## 1.0.0
-
-- Initial production package split from the frozen baseline.

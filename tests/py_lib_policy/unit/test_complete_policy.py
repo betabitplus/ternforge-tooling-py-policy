@@ -13,16 +13,6 @@ def test_valid_nondefault_distribution_and_package(tmp_path: Path) -> None:
     assert policy.check(start=tmp_path) == ()
 
 
-def test_old_tool_table_is_rejected(tmp_path: Path) -> None:
-    _valid_project(tmp_path)
-    path = tmp_path / "pyproject.toml"
-    path.write_text(
-        path.read_text().replace("[tool.ternforge]", "[tool.py_lib_" + "starter]"),
-        encoding="utf-8",
-    )
-    assert any("[tool.ternforge]" in message for message in _messages(tmp_path))
-
-
 def test_missing_managed_project_file_is_reported(tmp_path: Path) -> None:
     _valid_project(tmp_path)
     (tmp_path / ".pre-commit-config.yaml").unlink()

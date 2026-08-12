@@ -160,8 +160,8 @@ def test_declared_public_namespace_is_allowed(tmp_path: Path) -> None:
     path = tmp_path / "pyproject.toml"
     path.write_text(
         path.read_text().replace(
-            'library_lane = "standard-lib"',
-            'library_lane = "standard-lib"\npublic_namespace_packages = [ "models" ]',
+            'env_prefix = "SAMPLE_LIB"',
+            'env_prefix = "SAMPLE_LIB"\npublic_namespace_packages = [ "models" ]',
         ),
         encoding="utf-8",
     )

@@ -12,7 +12,6 @@ from py_lib_policy._api.defaults import (
     _PACKAGE_PLACEHOLDER,
     _REQUIRED_MANAGED_PROJECT_FILES,
     _REQUIRED_PACKAGE_TEST_PATHS,
-    _REQUIRED_TEMPLATE_TEST_PATHS,
     _REQUIRED_TEST_ROOT_PATHS,
 )
 from py_lib_policy._internal.config.models import ProjectPolicyConfig
@@ -49,7 +48,6 @@ def _required_test_paths(tests: Path, *, packages: tuple[str, ...]) -> list[Path
     for package in packages:
         package_root = tests / package
         required.extend(package_root / item for item in _REQUIRED_PACKAGE_TEST_PATHS)
-        required.extend(package_root / item for item in _REQUIRED_TEMPLATE_TEST_PATHS)
     return required
 
 

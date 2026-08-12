@@ -40,20 +40,13 @@ _REQUIRED_PACKAGE_TEST_PATHS = (
     "__init__.py",
     "conftest.py",
     "e2e/__init__.py",
+    "e2e/public_boundary/__init__.py",
     "integration/__init__.py",
     "property_based/__init__.py",
     "property_based/internal/__init__.py",
     "property_based/public_contract/__init__.py",
     "support/__init__.py",
     "unit/__init__.py",
-)
-
-_REQUIRED_TEMPLATE_TEST_PATHS = (
-    "e2e/public_boundary/__init__.py",
-    "e2e/public_boundary/test_public_config_pipeline.py",
-    "integration/test_config_lifecycle.py",
-    "property_based/public_contract/test_config_contract.py",
-    "unit/test_public_package.py",
 )
 
 _PACKAGE_DOCS = (

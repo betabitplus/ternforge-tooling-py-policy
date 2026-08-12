@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.8](https://github.com/betabitplus/ternforge-tooling-py-policy/compare/v1.1.7...v1.1.8) (2026-08-12)
+
+
+### Bug Fixes
+
+* stop requiring template test files ([#47](https://github.com/betabitplus/ternforge-tooling-py-policy/issues/47)) ([bb5836a](https://github.com/betabitplus/ternforge-tooling-py-policy/commit/bb5836ae1d8282030a4985448f93c26a838d2256))
+
 ## [1.1.7](https://github.com/betabitplus/ternforge-tooling-py-policy/compare/v1.1.6...v1.1.7) (2026-08-11)
 
 

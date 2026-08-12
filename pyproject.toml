@@ -404,7 +404,6 @@ allowed_prefixes = [ "Merge", "Revert", "WIP" ]
 [tool.ternforge]
 primary_package = "py_lib_policy"
 package_names = [ "py_lib_policy" ]
-library_lane = "standard-lib"
 env_prefix = "PY_LIB_POLICY"
 secrets.env_files = []
 

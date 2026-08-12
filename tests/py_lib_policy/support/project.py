@@ -42,7 +42,6 @@ def _valid_project(
                 f'primary_package = "{package}"',
                 f'package_names = [ "{package}" ]',
                 f'env_prefix = "{package.upper()}"',
-                'library_lane = "standard-lib"',
                 "",
             ]
         ),
@@ -113,16 +112,12 @@ def _valid_project(
         "conftest.py",
         "e2e/__init__.py",
         "e2e/public_boundary/__init__.py",
-        "e2e/public_boundary/test_public_config_pipeline.py",
         "integration/__init__.py",
-        "integration/test_config_lifecycle.py",
         "property_based/__init__.py",
         "property_based/internal/__init__.py",
         "property_based/public_contract/__init__.py",
-        "property_based/public_contract/test_config_contract.py",
         "support/__init__.py",
         "unit/__init__.py",
-        "unit/test_public_package.py",
     ):
         text = (
             "# %%\n"

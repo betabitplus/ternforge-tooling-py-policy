@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.10](https://github.com/betabitplus/ternforge-tooling-py-policy/compare/v1.1.9...v1.1.10) (2026-08-16)
+
+
+### Bug Fixes
+
+* **deps:** update Python library template to v1.4.11 ([64e9613](https://github.com/betabitplus/ternforge-tooling-py-policy/commit/64e96134324e78acb064706cdea741906fe2521a))
+
 ## [1.1.9](https://github.com/betabitplus/ternforge-tooling-py-policy/compare/v1.1.8...v1.1.9) (2026-08-16)
 
 

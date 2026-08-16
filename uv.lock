@@ -1568,7 +1568,7 @@ wheels = [
 
 [[package]]
 name = "py-lib-policy"
-version = "1.1.8"
+version = "1.1.9"
 source = { editable = "." }
 dependencies = [
     { name = "pyyaml" },

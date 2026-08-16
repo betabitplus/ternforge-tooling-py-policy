@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.9](https://github.com/betabitplus/ternforge-tooling-py-policy/compare/v1.1.8...v1.1.9) (2026-08-16)
+
+
+### Bug Fixes
+
+* **deps:** update dependency betabitplus/ternforge-infra-updates to v0.2.5 ([#46](https://github.com/betabitplus/ternforge-tooling-py-policy/issues/46)) ([f8c5f37](https://github.com/betabitplus/ternforge-tooling-py-policy/commit/f8c5f37d726f3750711d8fa06411869e7eae6ecb))
+* support private source repositories ([#57](https://github.com/betabitplus/ternforge-tooling-py-policy/issues/57)) ([a0efe9b](https://github.com/betabitplus/ternforge-tooling-py-policy/commit/a0efe9b92ecc9d376852df7c236342cc076fc312))
+
 ## [1.1.8](https://github.com/betabitplus/ternforge-tooling-py-policy/compare/v1.1.7...v1.1.8) (2026-08-12)
 
 

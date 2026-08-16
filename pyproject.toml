@@ -90,10 +90,11 @@ packages.find.include = [ "py_lib_policy*" ]
 package-dir."" = "src"
 
 [tool.uv]
-required-version = "==0.12.3"
-sources.py-lib-policy = { git = "https://github.com/betabitplus/ternforge-tooling-py-policy.git", tag = "v1.1.8" }
-sources.py-lib-runtime = { git = "https://github.com/betabitplus/ternforge-tooling-py-runtime.git", tag = "v1.1.5" }
-sources.py-lib-testkit = { git = "https://github.com/betabitplus/ternforge-tooling-py-testkit.git", tag = "v2.0.0" }
+required-version = "==0.12.5"
+override-dependencies = [ "py-lib-runtime" ]
+sources.py-lib-policy = { git = "https://github.com/betabitplus/ternforge-tooling-py-policy.git", tag = "v1.1.9" }
+sources.py-lib-runtime = { git = "https://github.com/betabitplus/ternforge-tooling-py-runtime.git", tag = "v1.1.6" }
+sources.py-lib-testkit = { git = "https://github.com/betabitplus/ternforge-tooling-py-testkit.git", tag = "v2.0.1" }
 
 # ---------------- Ruff configuration ----------------
 [tool.ruff]

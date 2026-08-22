@@ -12,7 +12,6 @@ from py_lib_policy._internal.policy.models import Violation
 from py_lib_policy._internal.policy.syntax import (
     _check_declaration_module,
     _check_root_initializer,
-    _has_cell_marker,
     _iter_python,
     _parse,
 )
@@ -275,13 +274,6 @@ def _check_example_package(package_root: Path, *, package: str) -> list[Violatio
 def _check_example_file(path: Path, *, package: str) -> list[Violation]:
     """Check one example module for runnability and public-boundary use."""
     violations: list[Violation] = []
-    if path.name != "__init__.py" and not _has_cell_marker(path):
-        violations.append(
-            Violation(
-                path,
-                ("runnable examples must start with `# %%` for IPython console use"),
-            )
-        )
     tree = _parse(path)
     if tree is None:
         return [*violations, Violation(path, "example source must be valid Python")]

@@ -197,7 +197,7 @@ def test_generic_static_import_relationship_is_left_to_import_linter(
     )
 
 
-def test_examples_enforce_location_marker_and_private_string_references(
+def test_examples_enforce_location_and_private_string_references(
     tmp_path: Path,
 ) -> None:
     _valid_project(tmp_path)
@@ -208,9 +208,6 @@ def test_examples_enforce_location_marker_and_private_string_references(
     )
     messages = _messages(tmp_path)
     assert "examples must live under `examples/<package>/`" in messages
-    assert (
-        "runnable examples must start with `# %%` for IPython console use" in messages
-    )
     assert "examples must not reference private package modules" in messages
 
 

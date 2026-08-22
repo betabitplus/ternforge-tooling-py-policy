@@ -57,7 +57,6 @@ _PACKAGE_DOCS = (
     "architecture/flows/README.md",
     "architecture/system.md",
     "dependencies.md",
-    "usage.md",
     "verification/README.md",
     "verification/e2e/README.md",
     "verification/public-boundary-and-errors.md",

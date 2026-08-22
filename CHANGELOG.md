@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/betabitplus/ternforge-tooling-py-policy/compare/v1.1.10...v1.2.0) (2026-08-22)
+
+
+### Features
+
+* align policy with live executable examples ([#77](https://github.com/betabitplus/ternforge-tooling-py-policy/issues/77)) ([e4f470b](https://github.com/betabitplus/ternforge-tooling-py-policy/commit/e4f470b3c9ac2fd7d24aa4740104fa7bbbe1cae0))
+
 ## [1.1.10](https://github.com/betabitplus/ternforge-tooling-py-policy/compare/v1.1.9...v1.1.10) (2026-08-16)
 
 

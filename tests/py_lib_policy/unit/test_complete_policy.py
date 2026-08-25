@@ -211,14 +211,18 @@ def test_examples_enforce_location_and_private_string_references(
     assert "examples must not reference private package modules" in messages
 
 
-def test_e2e_and_workbench_require_cell_markers(tmp_path: Path) -> None:
+def test_e2e_is_optional_and_does_not_require_interactive_markers(
+    tmp_path: Path,
+) -> None:
     _valid_project(tmp_path)
     _write(tmp_path / "tests/sample_lib/e2e/case.py", "print('case')\n")
+    assert policy.check(start=tmp_path) == ()
+
+
+def test_workbench_requires_cell_markers(tmp_path: Path) -> None:
+    _valid_project(tmp_path)
     _write(tmp_path / "workbench/sample_lib/probe.py", "print('probe')\n")
     messages = _messages(tmp_path)
-    assert (
-        "runnable e2e tests must start with `# %%` for IPython console use" in messages
-    )
     assert (
         "runnable workbench modules must start with `# %%` for IPython console use"
         in messages
@@ -229,34 +233,6 @@ def test_complete_docs_skeleton_is_required(tmp_path: Path) -> None:
     _valid_project(tmp_path)
     (tmp_path / "docs/sample_lib/architecture/concepts/README.md").unlink()
     assert "required Ternforge docs file is missing" in _messages(tmp_path)
-
-
-def test_configured_e2e_slice_requires_path_and_documentation(tmp_path: Path) -> None:
-    _valid_project(tmp_path)
-    _write(
-        tmp_path / ".copier-answers.yml",
-        (
-            "e2e_slices:\n"
-            "  - name: custom-flow\n"
-            "    path: tests/__PACKAGE_NAME__/e2e/custom_flow\n"
-        ),
-    )
-    messages = _messages(tmp_path)
-    assert "configured e2e slice directory is missing" in messages
-    assert "configured e2e slice documentation is missing" in messages
-    (tmp_path / "tests/sample_lib/e2e/custom_flow").mkdir(parents=True)
-    _write(
-        tmp_path / "docs/sample_lib/verification/e2e/custom-flow.md", "# Custom flow\n"
-    )
-    assert policy.check(start=tmp_path) == ()
-
-
-def test_malformed_e2e_slice_config_fails_closed(tmp_path: Path) -> None:
-    _valid_project(tmp_path)
-    _write(tmp_path / ".copier-answers.yml", "e2e_slices: invalid\n")
-    assert any(
-        "e2e_slices must be a list" in message for message in _messages(tmp_path)
-    )
 
 
 def test_uv_workspace_members_are_checked(tmp_path: Path) -> None:

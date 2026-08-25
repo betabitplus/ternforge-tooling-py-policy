@@ -1,3 +1,3 @@
 # Dependencies
 
-Runtime policy code uses the Python standard library plus PyYAML for the active `.copier-answers.yml` `e2e_slices` contract. Generic lint, type, security, dependency, and packaging behavior stays with direct standard tools.
+Runtime policy code uses the Python standard library. Generic lint, type, security, dependency, packaging, BDD semantics, and test execution stay with their direct standard tools rather than being reimplemented as Ternforge policy.

@@ -15,7 +15,6 @@ PACKAGE_DOCS = (
     "architecture/system.md",
     "dependencies.md",
     "verification/README.md",
-    "verification/e2e/README.md",
     "verification/public-boundary-and-errors.md",
     "verification/workbench.md",
 )
@@ -109,8 +108,6 @@ def _valid_project(
     for relative in (
         "__init__.py",
         "conftest.py",
-        "e2e/__init__.py",
-        "e2e/public_boundary/__init__.py",
         "integration/__init__.py",
         "property_based/__init__.py",
         "property_based/internal/__init__.py",
@@ -118,14 +115,7 @@ def _valid_project(
         "support/__init__.py",
         "unit/__init__.py",
     ):
-        text = (
-            "# %%\n"
-            if relative.endswith(".py")
-            and "/e2e/" in f"/{relative}"
-            and not relative.endswith("__init__.py")
-            else ""
-        )
-        _write(package_tests / relative, text)
+        _write(package_tests / relative)
 
     _write(root / "docs" / "README.md", "# Docs\n")
     for relative in PACKAGE_DOCS:
@@ -145,7 +135,7 @@ def _valid_project(
         "renovate.json5",
     ):
         _write(root / relative)
-    _write(root / ".copier-answers.yml", "e2e_slices: []\n")
+    _write(root / ".copier-answers.yml", "{}\n")
 
 
 def _messages(root: Path) -> list[str]:

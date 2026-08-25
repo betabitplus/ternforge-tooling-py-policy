@@ -3,8 +3,6 @@
 from __future__ import annotations
 
 _TOOL_TABLE = "ternforge"
-_ANSWERS_FILE = ".copier-answers.yml"
-_PACKAGE_PLACEHOLDER = "__PACKAGE_NAME__"
 _IGNORED_PARTS = {".git", ".venv", "build", "dist", "__pycache__"}
 
 _REQUIRED_API_FILES = (
@@ -39,8 +37,6 @@ _REQUIRED_TEST_ROOT_PATHS = ("README.md", "__init__.py")
 _REQUIRED_PACKAGE_TEST_PATHS = (
     "__init__.py",
     "conftest.py",
-    "e2e/__init__.py",
-    "e2e/public_boundary/__init__.py",
     "integration/__init__.py",
     "property_based/__init__.py",
     "property_based/internal/__init__.py",
@@ -58,7 +54,6 @@ _PACKAGE_DOCS = (
     "architecture/system.md",
     "dependencies.md",
     "verification/README.md",
-    "verification/e2e/README.md",
     "verification/public-boundary-and-errors.md",
     "verification/workbench.md",
 )

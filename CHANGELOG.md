@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.2](https://github.com/betabitplus/ternforge-tooling-py-policy/compare/v1.2.1...v1.2.2) (2026-08-25)
+
+
+### Bug Fixes
+
+* remove obsolete verification docs ([#91](https://github.com/betabitplus/ternforge-tooling-py-policy/issues/91)) ([c3601a8](https://github.com/betabitplus/ternforge-tooling-py-policy/commit/c3601a8b5217b2c5ccf7db06c964fc71ceceadd3))
+
 ## [1.2.1](https://github.com/betabitplus/ternforge-tooling-py-policy/compare/v1.2.0...v1.2.1) (2026-08-25)
 
 

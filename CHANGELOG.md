@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/betabitplus/ternforge-tooling-py-policy/compare/v1.2.0...v1.2.1) (2026-08-25)
+
+
+### Bug Fixes
+
+* decouple e2e from project policy ([#88](https://github.com/betabitplus/ternforge-tooling-py-policy/issues/88)) ([dde9036](https://github.com/betabitplus/ternforge-tooling-py-policy/commit/dde903644589c01be1812bd5bff3b33d3354bf2e))
+
 ## [1.2.0](https://github.com/betabitplus/ternforge-tooling-py-policy/compare/v1.1.10...v1.2.0) (2026-08-22)
 
 

@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.4](https://github.com/betabitplus/ternforge-tooling-py-policy/compare/v1.2.3...v1.2.4) (2026-08-26)
+
+
+### Bug Fixes
+
+* clean verification reference index ([#98](https://github.com/betabitplus/ternforge-tooling-py-policy/issues/98)) ([ef5a49f](https://github.com/betabitplus/ternforge-tooling-py-policy/commit/ef5a49fc9fe2d35025dbaebe29760705a067bce8))
+* drop tests readme requirement ([#101](https://github.com/betabitplus/ternforge-tooling-py-policy/issues/101)) ([dffd8fd](https://github.com/betabitplus/ternforge-tooling-py-policy/commit/dffd8fd8fdbf0e6ffd74fe6f1fc8c9a22ede52b1))
+
 ## [1.2.3](https://github.com/betabitplus/ternforge-tooling-py-policy/compare/v1.2.2...v1.2.3) (2026-08-26)
 
 

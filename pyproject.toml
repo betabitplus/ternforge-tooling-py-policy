@@ -10,7 +10,7 @@ requires = [ "setuptools>=82.0.1" ]
 # ==============================================================================
 [project]
 name = "py-lib-policy"
-version = "1.2.3"
+version = "1.2.4"
 description = "Ternforge structural, configuration, documentation, and verification policy checks."
 readme = "README.md"
 keywords = [ "library", "python" ]

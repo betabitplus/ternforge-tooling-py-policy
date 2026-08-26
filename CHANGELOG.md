@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.3](https://github.com/betabitplus/ternforge-tooling-py-policy/compare/v1.2.2...v1.2.3) (2026-08-26)
+
+
+### Bug Fixes
+
+* apply lean template baseline ([#93](https://github.com/betabitplus/ternforge-tooling-py-policy/issues/93)) ([3f0a988](https://github.com/betabitplus/ternforge-tooling-py-policy/commit/3f0a98885071f47891d0471fc7ab6927f9ae1a34))
+
 ## [1.2.2](https://github.com/betabitplus/ternforge-tooling-py-policy/compare/v1.2.1...v1.2.2) (2026-08-25)
 
 

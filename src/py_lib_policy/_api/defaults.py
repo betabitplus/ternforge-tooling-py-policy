@@ -32,7 +32,7 @@ _REQUIRED_MANAGED_PROJECT_FILES = (
     "renovate.json5",
 )
 
-_REQUIRED_TEST_ROOT_PATHS = ("README.md", "__init__.py")
+_REQUIRED_TEST_ROOT_PATHS = ("__init__.py",)
 
 _REQUIRED_PACKAGE_TEST_PATHS = (
     "__init__.py",

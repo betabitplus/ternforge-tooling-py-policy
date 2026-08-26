@@ -99,7 +99,6 @@ def _valid_project(
     )
 
     tests = root / "tests"
-    _write(tests / "README.md", "# Tests\n")
     _write(tests / "__init__.py")
     package_tests = tests / package
     for relative in (

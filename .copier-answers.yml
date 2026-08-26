@@ -1,4 +1,4 @@
-_commit: v1.9.5
+_commit: v1.9.6
 _src_path: https://github.com/betabitplus/ternforge-template-py-library.git
 author_email: 8123085+betabitplus@users.noreply.github.com
 author_name: betabitplus
@@ -6,9 +6,6 @@ ci_playwright_browsers: []
 config_class_name: PyLibPolicyConfig
 copyright_year: '2026'
 devcontainer_apt_packages: {}
-e2e_slices:
--   name: public-boundary
-    path: tests/__PACKAGE_NAME__/e2e/public_boundary
 env_prefix: PY_LIB_POLICY
 error_class_name: PyLibPolicyError
 github_owner: betabitplus

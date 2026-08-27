@@ -6,16 +6,6 @@ from pathlib import Path
 
 import py_lib_policy as policy
 
-PACKAGE_DOCS = (
-    "README.md",
-    "architecture/README.md",
-    "architecture/concepts/README.md",
-    "architecture/concepts/public-boundary-and-errors.md",
-    "architecture/flows/README.md",
-    "architecture/system.md",
-    "dependencies.md",
-)
-
 
 def _write(path: Path, text: str = "") -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -98,24 +88,6 @@ def _valid_project(
         "def validate():\n    return None\n",
     )
 
-    tests = root / "tests"
-    _write(tests / "__init__.py")
-    package_tests = tests / package
-    for relative in (
-        "__init__.py",
-        "conftest.py",
-        "integration/__init__.py",
-        "property_based/__init__.py",
-        "property_based/internal/__init__.py",
-        "property_based/public_contract/__init__.py",
-        "support/__init__.py",
-        "unit/__init__.py",
-    ):
-        _write(package_tests / relative)
-
-    _write(root / "docs" / "README.md", "# Docs\n")
-    for relative in PACKAGE_DOCS:
-        _write(root / "docs" / package / relative, "# Doc\n")
     _write(root / "examples" / "__init__.py")
     _write(root / "examples" / package / "__init__.py")
     _write(root / "examples" / package / "demo.py", "# %%\nprint('demo')\n")

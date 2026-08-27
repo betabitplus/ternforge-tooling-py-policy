@@ -19,13 +19,10 @@ def test_missing_managed_project_file_is_reported(tmp_path: Path) -> None:
     assert "required Ternforge managed project file is missing" in _messages(tmp_path)
 
 
-def test_missing_source_and_test_paths_are_reported(tmp_path: Path) -> None:
+def test_missing_source_path_is_reported(tmp_path: Path) -> None:
     _valid_project(tmp_path)
     (tmp_path / "src/sample_lib/_api/config.py").unlink()
-    (tmp_path / "tests/sample_lib/unit/__init__.py").unlink()
-    messages = _messages(tmp_path)
-    assert "required Ternforge package path is missing" in messages
-    assert "required Ternforge test path is missing" in messages
+    assert "required Ternforge package path is missing" in _messages(tmp_path)
 
 
 def test_console_script_must_use_existing_api_facade_function(tmp_path: Path) -> None:
@@ -227,12 +224,6 @@ def test_workbench_requires_cell_markers(tmp_path: Path) -> None:
         "runnable workbench modules must start with `# %%` for IPython console use"
         in messages
     )
-
-
-def test_complete_docs_skeleton_is_required(tmp_path: Path) -> None:
-    _valid_project(tmp_path)
-    (tmp_path / "docs/sample_lib/architecture/concepts/README.md").unlink()
-    assert "required Ternforge docs file is missing" in _messages(tmp_path)
 
 
 def test_uv_workspace_members_are_checked(tmp_path: Path) -> None:

@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.5](https://github.com/betabitplus/ternforge-tooling-py-policy/compare/v1.2.4...v1.2.5) (2026-08-27)
+
+
+### Bug Fixes
+
+* stop enforcing docs and test layouts ([#105](https://github.com/betabitplus/ternforge-tooling-py-policy/issues/105)) ([27b6865](https://github.com/betabitplus/ternforge-tooling-py-policy/commit/27b6865891b4597cff0bc036781692d84e949a4e))
+
 ## [1.2.4](https://github.com/betabitplus/ternforge-tooling-py-policy/compare/v1.2.3...v1.2.4) (2026-08-26)
 
 

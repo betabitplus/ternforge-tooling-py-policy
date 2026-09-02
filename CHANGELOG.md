@@ -1,5 +1,21 @@
 # Changelog
 
+## [2.0.0](https://github.com/betabitplus/ternforge-tooling-py-policy/compare/v1.2.5...v2.0.0) (2026-09-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* enforce engineering experiment capsules ([#109](https://github.com/betabitplus/ternforge-tooling-py-policy/issues/109))
+
+### Features
+
+* enforce engineering experiment capsules ([#109](https://github.com/betabitplus/ternforge-tooling-py-policy/issues/109)) ([8d9dffe](https://github.com/betabitplus/ternforge-tooling-py-policy/commit/8d9dffe2ade2d17b329a32c5f933130a8e9c8988))
+
+
+### Bug Fixes
+
+* reject experiment path escapes ([#111](https://github.com/betabitplus/ternforge-tooling-py-policy/issues/111)) ([f08dde0](https://github.com/betabitplus/ternforge-tooling-py-policy/commit/f08dde0b5c0ab7412a57f9dfa591106fcba6d033))
+
 ## [1.2.5](https://github.com/betabitplus/ternforge-tooling-py-policy/compare/v1.2.4...v1.2.5) (2026-08-27)
 
 

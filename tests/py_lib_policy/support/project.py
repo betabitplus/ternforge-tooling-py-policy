@@ -91,9 +91,6 @@ def _valid_project(
     _write(root / "examples" / "__init__.py")
     _write(root / "examples" / package / "__init__.py")
     _write(root / "examples" / package / "demo.py", "# %%\nprint('demo')\n")
-    _write(root / "workbench" / "__init__.py")
-    _write(root / "workbench" / package / "__init__.py")
-    _write(root / "workbench" / package / "probe.py", "# %%\nprint('probe')\n")
     for relative in (
         ".github/workflows/ci.yml",
         ".github/workflows/release.yml",
@@ -104,6 +101,37 @@ def _valid_project(
     ):
         _write(root / relative)
     _write(root / ".copier-answers.yml", "{}\n")
+
+
+def _valid_experiment(
+    root: Path,
+    *,
+    project: str = "sample_lib",
+    capsule: str = "exp_0001_probe",
+) -> Path:
+    """Create one structurally valid standalone experiment capsule."""
+    capsule_root = root / "experiments" / project / capsule
+    _write(capsule_root / "src" / "experiment.py", "def main():\n    return 0\n")
+    _write(capsule_root / "report" / "report.ipynb", "{}\n")
+    _write(
+        capsule_root / "pyproject.toml",
+        "\n".join(
+            [
+                "[project]",
+                f'name = "{capsule}"',
+                'version = "0.0.0"',
+                'requires-python = "==3.13.7.*"',
+                'dependencies = [ "httpx" ]',
+                "",
+                "[tool.uv]",
+                'required-version = "==0.12.5"',
+                "",
+            ]
+        ),
+    )
+    _write(capsule_root / "uv.lock", "version = 1\n")
+    _write(capsule_root / ".python-version", "3.13.7\n")
+    return capsule_root
 
 
 def _messages(root: Path) -> list[str]:

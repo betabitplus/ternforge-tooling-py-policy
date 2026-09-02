@@ -28,14 +28,6 @@ def _iter_python(root: Path) -> Iterable[Path]:
             yield path
 
 
-def _has_cell_marker(path: Path) -> bool:
-    """Return whether one runnable module starts with an IPython cell marker."""
-    try:
-        return path.read_text(encoding="utf-8").splitlines()[0].strip() == "# %%"
-    except (OSError, UnicodeDecodeError, IndexError):
-        return False
-
-
 def _doc_or_future(node: ast.stmt) -> bool:
     """Return whether one statement is a docstring or future import."""
     return (

@@ -216,16 +216,6 @@ def test_e2e_is_optional_and_does_not_require_interactive_markers(
     assert policy.check(start=tmp_path) == ()
 
 
-def test_workbench_requires_cell_markers(tmp_path: Path) -> None:
-    _valid_project(tmp_path)
-    _write(tmp_path / "workbench/sample_lib/probe.py", "print('probe')\n")
-    messages = _messages(tmp_path)
-    assert (
-        "runnable workbench modules must start with `# %%` for IPython console use"
-        in messages
-    )
-
-
 def test_uv_workspace_members_are_checked(tmp_path: Path) -> None:
     _write(
         tmp_path / "pyproject.toml",

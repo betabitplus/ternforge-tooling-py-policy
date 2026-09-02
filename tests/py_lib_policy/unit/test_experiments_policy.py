@@ -161,3 +161,50 @@ def test_capsule_symlink_must_not_escape(tmp_path: Path) -> None:
     link.parent.mkdir(parents=True, exist_ok=True)
     link.symlink_to(outside)
     assert "experiment symlink must not escape capsule" in _messages(tmp_path)
+
+
+def test_capsule_file_parent_lookup_may_reach_capsule_root(tmp_path: Path) -> None:
+    _valid_project(tmp_path)
+    capsule = _valid_experiment(tmp_path)
+    _write(
+        capsule / "src" / "probe.py",
+        "from pathlib import Path\nROOT = Path(__file__).resolve().parents[1]\n",
+    )
+    assert policy.check(start=tmp_path) == ()
+
+
+def test_capsule_file_parent_lookup_must_not_escape_capsule(tmp_path: Path) -> None:
+    _valid_project(tmp_path)
+    capsule = _valid_experiment(tmp_path)
+    _write(
+        capsule / "src" / "probe.py",
+        (
+            "from pathlib import Path\n"
+            "ROOT = Path(__file__).resolve().parents[2] / 'tests'\n"
+        ),
+    )
+    assert (
+        "experiment path derived from `__file__` must not escape capsule"
+        in _messages(tmp_path)
+    )
+
+
+def test_capsule_path_literals_must_not_escape_capsule(tmp_path: Path) -> None:
+    _valid_project(tmp_path)
+    capsule = _valid_experiment(tmp_path)
+    _write(
+        capsule / "src" / "probe.py",
+        (
+            "from pathlib import Path\n"
+            "RELATIVE = Path('../outside')\n"
+            "ABSOLUTE = Path('/tmp/outside')\n"
+        ),
+    )
+    messages = _messages(tmp_path)
+    assert (
+        sum(
+            "experiment Path literal must stay inside capsule" in item
+            for item in messages
+        )
+        == 2
+    )

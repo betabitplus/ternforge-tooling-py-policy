@@ -15,6 +15,7 @@ from py_lib_policy._internal.policy.experiment_imports import (
     _check_capsule_imports,
     _check_product_does_not_import_experiments,
 )
+from py_lib_policy._internal.policy.experiment_paths import _check_capsule_paths
 from py_lib_policy._internal.policy.models import Violation
 
 _CAPSULE_RE = re.compile(r"^exp_[0-9]{4}_[a-z0-9_]+$")
@@ -158,6 +159,7 @@ def _check_capsule(capsule: Path, config: ProjectPolicyConfig) -> list[Violation
     violations.extend(_check_capsule_python_locations(capsule))
     violations.extend(_check_nested_capsules(capsule))
     violations.extend(_check_symlinks(capsule))
+    violations.extend(_check_capsule_paths(capsule))
     violations.extend(_check_capsule_dependencies(capsule, config))
     violations.extend(_check_capsule_imports(capsule, config))
     return violations

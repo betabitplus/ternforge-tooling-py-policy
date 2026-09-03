@@ -1,4 +1,3 @@
-# %%
 """Exercise the installed public policy and CLI boundaries."""
 
 from __future__ import annotations

@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.1](https://github.com/betabitplus/ternforge-tooling-py-policy/compare/v2.1.0...v2.1.1) (2026-09-06)
+
+
+### Bug Fixes
+
+* complete DocOps cleanup ([#117](https://github.com/betabitplus/ternforge-tooling-py-policy/issues/117)) ([f60687d](https://github.com/betabitplus/ternforge-tooling-py-policy/commit/f60687df8857f5576bbe1cfab2ad97328af7639b))
+
 ## [2.1.0](https://github.com/betabitplus/ternforge-tooling-py-policy/compare/v2.0.0...v2.1.0) (2026-09-03)
 
 

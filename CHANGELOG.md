@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.2](https://github.com/betabitplus/ternforge-tooling-py-policy/compare/v2.1.1...v2.1.2) (2026-09-07)
+
+
+### Bug Fixes
+
+* finish template metadata cleanup ([#119](https://github.com/betabitplus/ternforge-tooling-py-policy/issues/119)) ([59905d1](https://github.com/betabitplus/ternforge-tooling-py-policy/commit/59905d1a80959cc5ad99b19a6774abf37bd63465))
+
 ## [2.1.1](https://github.com/betabitplus/ternforge-tooling-py-policy/compare/v2.1.0...v2.1.1) (2026-09-06)
 
 
